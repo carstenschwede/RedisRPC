@@ -1,6 +1,6 @@
 {
   "author": "Carsten Schwede",
-  "name": "RedisRPC",
+  "name": "redisrpc",
   "description": "RPC via Redis for Node.js objects",
   "version": "0.0.1",
   "repository": {
