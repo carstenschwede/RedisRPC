@@ -1,0 +1,34 @@
+{
+  "author": "Carsten Schwede",
+  "name": "RedisRPC",
+  "description": "RPC via Redis for Node.js objects",
+  "version": "0.0.1",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/carstenschwede/redisrpc.git"
+  },
+  "keywords": [
+    "Redis",
+    "RPC"
+  ],
+  "dependencies": {
+    "redis": "*",
+    "node-uuid": "*"
+  },
+  "engines": {
+    "node": "*"
+  },
+  "bugs": {
+    "url": "https://github.com/carstenschwede/redisrpc/issues"
+  },
+  "homepage": "https://github.com/carstenschwede/redisrpc",
+  "main": "lib/RedisRPC.js",
+  "directories": {
+    "test": "test"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "mocha test -R spec"
+  },
+  "license": "MIT"
+}
