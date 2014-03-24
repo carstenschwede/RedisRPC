@@ -6,23 +6,19 @@ describe('RedisRPC', function(){
 
 	var commonIdentifier = 100000;
 
-	var child_process = fork("./test/dep/worker_object",[commonIdentifier]);
+	var child_process = fork("./test/dep/worker_object.js",[commonIdentifier]);
 	process.on("exit", function() {
 		child_process.kill();
 	});
-
 
 	var person;
 
 	this.timeout(10000);
 	before(function(done) {
-		//TODO REPLACE SETTIMEOUT WITH AUTODESTRUCT SETINTERVAL UNTIL CONNECTION IS MOADE
-		setTimeout(function() {
-			RedisRPC.use(commonIdentifier, function(err,instance) {
-				person = instance;
-				done(err);
-			});
-		},0);
+		RedisRPC.use(commonIdentifier, function(err,instance) {
+			person = instance;
+			done(err);
+		});
 	});
 
 
@@ -38,6 +34,19 @@ describe('RedisRPC', function(){
 		});
 	});
 
+	it('should be able to receive arguments to multiple callback', function(done) {
+		var a = 1,b = 2;
+		person.ping2(a,b,function(result) {
+//			console.log(result);
+			result.should.equal("pong="+(a+b));
+		},function(result) {
+			result.should.equal("pong="+(a*b));
+//			console.log(result);
+			done();
+		});
+	});
+
+
 	it('should be able to pass arguments to callback', function(done) {
 		var k = Math.floor(Math.random()*10000);
 		person.echo(k,function(result) {
@@ -45,4 +54,5 @@ describe('RedisRPC', function(){
 			done();
 		});
 	});
+
 });
