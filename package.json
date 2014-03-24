@@ -2,7 +2,7 @@
   "author": "Carsten Schwede",
   "name": "redisrpc",
   "description": "RPC via Redis for Node.js objects",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "repository": {
     "type": "git",
     "url": "https://github.com/carstenschwede/redisrpc.git"
